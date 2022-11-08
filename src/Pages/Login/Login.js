@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -16,6 +17,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            toast.success('Login successfully.')
         })
         .catch(err => console.error(err))
     }

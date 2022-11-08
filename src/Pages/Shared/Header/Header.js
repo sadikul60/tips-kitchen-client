@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { HiUserCircle } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexs/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const {user, logOut} = useContext(AuthContext);
 
+    const handleLogOut = () => {
+        logOut()
+        
+    }
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/services'>Services</Link></li>
         <li className='font-semibold'><Link to='/blogs'>Blogs</Link></li>
-        <li className='font-semibold'><Link to='/login'>Login</Link></li>
+        {
+            user?.uid ? 
+            <>
+                <li className='font-semibold'><button onClick={handleLogOut}>Log Out</button></li>
+            </>
+            :
+            <li className='font-semibold'><Link to='/login'>Login</Link></li>
+        }
     </>
 
     return (
@@ -30,9 +44,14 @@ const Header = () => {
                 {menuItems}
                 </ul>
             </div>
-            {/* <div className="navbar-end">
-                <Link to='/' className="btn btn-primary">Get started</Link>
-            </div> */}
+            <div className="navbar-end">
+                {
+                    user?.photoURL ?
+                    <img className='w-16 h-16 rounded-full' src={user?.photoURL} alt="" />
+                    :
+                    <HiUserCircle className='w-16 h-16 rounded-full'></HiUserCircle>
+                }
+            </div>
 </div>
     );
 };

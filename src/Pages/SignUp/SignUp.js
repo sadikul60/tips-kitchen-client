@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import img from '../../assets/sign-up.png'
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
 
@@ -21,6 +22,7 @@ const SignUp = () => {
             const user = result.user;
             console.log(user);
             handleUpdateProfile(name, photoURL);
+            toast.success('Sign Up successfully.')
             form.reset();
         })
         .catch(err => console.log(err))
