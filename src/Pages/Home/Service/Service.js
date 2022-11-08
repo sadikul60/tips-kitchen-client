@@ -1,9 +1,9 @@
 import React from 'react';
-import { HiStar } from "react-icons/hi";
+import { HiStar } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
-const ServiceItem = ({service}) => {
-    const {_id, name, price, description, img, ratings} = service;
+const Service = ({service}) => {
+    const {_id, img, name, price, description, ratings} = service;
     return (
         <div className="card w-full bg-slate-400 shadow-xl">
             <figure className="px-10 pt-10">
@@ -31,4 +31,4 @@ const ServiceItem = ({service}) => {
     );
 };
 
-export default ServiceItem;
+export default Service;

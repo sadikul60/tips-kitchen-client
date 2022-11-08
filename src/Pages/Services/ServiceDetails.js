@@ -24,7 +24,7 @@ const ServiceDetails = () => {
                             <HiStar />
                             <HiStar />
                         </p>
-                        <p className='text-center'>{ratings}</p>
+                        <p className='text-center'>{ratings}k</p>
                     </div>
                     <p>{description}</p>
                     <div className="">
