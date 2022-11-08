@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import img from '../../assets/sign-up.png'
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
+import { FaGoogle } from "react-icons/fa";
 
 const SignUp = () => {
-    const {createUser, updateUserProfile} = useContext(AuthContext);
+    const {createUser, updateUserProfile, GoogleSignIn} = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -20,12 +23,11 @@ const SignUp = () => {
         createUser(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user);
             handleUpdateProfile(name, photoURL);
             toast.success('Sign Up successfully.')
             form.reset();
         })
-        .catch(err => console.log(err))
+        .catch(err => console.error(err))
     }
 
     const handleUpdateProfile = (name, photoURL) => {
@@ -36,7 +38,17 @@ const SignUp = () => {
 
         updateUserProfile(profile)
         .then(result => { })
-        .catch(err => console.log(err))
+        .catch(err => console.error(err))
+    }
+
+    // googleSignUp
+    const handleGoogleSignIn = () => {
+        GoogleSignIn(googleProvider)
+        .then(result => {
+            const user = result.user;
+            toast.success('Sign Up successfully.')
+        })
+        .then(err => console.error(err))
     }
     return (
         <div>
@@ -79,6 +91,9 @@ const SignUp = () => {
                             <button type='submit' className="btn btn-primary">Sign Up</button>
                             </div>
                         </form>
+                        <div className="form-control mx-8 mt-3 mb-6">
+                            <button onClick={handleGoogleSignIn} className="btn btn-primary"><FaGoogle className='mr-2' /> Google SignIn</button>
+                        </div>
                     </div>
                 </div>
             </div>

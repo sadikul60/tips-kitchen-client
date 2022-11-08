@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
 
 const Login = () => {
-    const {login} = useContext(AuthContext);
+    const {login, GoogleSignIn} = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -21,6 +24,16 @@ const Login = () => {
             toast.success('Login successfully.')
         })
         .catch(err => console.error(err))
+    }
+
+    // googleSignUp
+    const handleGoogleLogIn = () => {
+        GoogleSignIn(googleProvider)
+        .then(result => {
+            const user = result.user;
+            toast.success('Sign Up successfully.')
+        })
+        .then(err => console.error(err))
     }
     return (
         <div className=''>
@@ -48,6 +61,9 @@ const Login = () => {
                             <button type='submit' className="btn btn-primary">Login</button>
                             </div>
                         </form>
+                        <div className="form-control mx-8 mt-3 mb-6">
+                            <button onClick={handleGoogleLogIn} className="btn btn-primary"><FaGoogle className='mr-2' /> Google Login</button>
+                        </div>
                     </div>
                 </div>
             </div>

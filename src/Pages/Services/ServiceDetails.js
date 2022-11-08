@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     console.log(img)
     return (
         <div className='container mx-auto my-20'>
-            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 items-center'>
+            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
                 <div className="card w-11/12 lg:w-full mx-auto bg-slate-400 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={img} alt="Shoes" className="w-full h-full rounded-xl" />
@@ -43,7 +43,9 @@ const ServiceDetails = () => {
                         service = {service}
                     ></ReviesField>
                     :
-                    <p>Please login to add a review <Link to ='/login'>Login</Link></p>
+                    <div className='w-11/12 lg:w-full mx-auto bg-slate-400 p-3 shadow-2xl rounded-xl'>
+                        <p className='text-sm md:text-2xl lg:text-3xl font-bold'>Please login to add a Review <Link to ='/login'><button className='btn btn-primary'>Login</button></Link></p>
+                    </div>
                 }
             </div>
         </div>
