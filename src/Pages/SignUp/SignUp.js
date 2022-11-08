@@ -46,7 +46,7 @@ const SignUp = () => {
                         <img className='md:w-3/4 mx-auto rounded-lg' src={img} alt="" />
                     </div>
                     <div className="card w-full shadow-2xl bg-slate-400">
-                    <h1 className="text-3xl font-bold pt-3">Sign Up now!</h1>
+                        <h1 className="text-3xl font-bold pt-3">Sign Up now!</h1>
                         <form onSubmit={handleSignUp} className="card-body">
                             <div className="form-control">
                             <label className="label">

@@ -17,6 +17,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            form.reset();
             toast.success('Login successfully.')
         })
         .catch(err => console.error(err))
