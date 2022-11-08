@@ -11,6 +11,7 @@ const SignUp = () => {
 
         const form = event.target;
         const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
         // console.log(name, email, password);
@@ -19,15 +20,16 @@ const SignUp = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            handleUpdateProfile(name);
+            handleUpdateProfile(name, photoURL);
             form.reset();
         })
         .catch(err => console.log(err))
     }
 
-    const handleUpdateProfile = (name) => {
+    const handleUpdateProfile = (name, photoURL) => {
         const profile = {
-            displayName: name
+            displayName: name,
+            photoURL: photoURL
         }
 
         updateUserProfile(profile)
@@ -49,6 +51,12 @@ const SignUp = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text" name='name' placeholder="name" className="input input-bordered"  />
+                            </div>
+                            <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">PhotoURL</span>
+                            </label>
+                            <input type="text" name='photoURL' placeholder="photoURL" className="input input-bordered"  />
                             </div>
                             <div className="form-control">
                             <label className="label">

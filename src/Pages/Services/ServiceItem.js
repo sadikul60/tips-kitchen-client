@@ -1,8 +1,9 @@
 import React from 'react';
 import { HiStar } from "react-icons/hi";
+import { Link } from 'react-router-dom';
 
 const ServiceItem = ({service}) => {
-    const {name, price, description, img, ratings} = service;
+    const {_id, name, price, description, img, ratings} = service;
     return (
         <div className="card w-full bg-slate-400 shadow-xl">
             <figure className="px-10 pt-10">
@@ -22,8 +23,8 @@ const ServiceItem = ({service}) => {
                     <p className='text-center'>{ratings}</p>
                 </div>
                 <p>{description.slice(0, 100)}...</p>
-                <div className="card-actions">
-                <button className="btn btn-primary mt-3 w-full">View Details</button>
+                <div>
+                <Link to={`/services/${_id}`}><button className="btn btn-primary mt-3 w-full">View Details</button></Link>
                 </div>
             </div>
         </div>
