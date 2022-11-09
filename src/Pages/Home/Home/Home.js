@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexs/AuthProvider/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
 import About from '../About/About';
 import Banner from '../Banner/Banner';
+import Contact from '../Contact/Contact';
 import Service from '../Service/Service';
 
 
@@ -41,6 +42,7 @@ const Home = () => {
 
             <div className='mb-20'>
                 <About></About>
+                <Contact></Contact>
             </div>
         </div>
     );

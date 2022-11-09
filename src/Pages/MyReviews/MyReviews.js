@@ -56,7 +56,7 @@ const MyReviews = () => {
             handleDelete = {handleDelete}
         ></ReviewRow>)
         :
-        <p>No Reviews were Added!</p>
+        <p className='text-2xl font-bold p-12'>No Reviews were Added!</p>
       }
     </tbody>
     

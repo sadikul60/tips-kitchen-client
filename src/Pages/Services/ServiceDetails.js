@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import ReviesField from './ReviesField';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceDetails = () => {
     const {user} = useContext(AuthContext);
@@ -18,7 +19,11 @@ const ServiceDetails = () => {
             <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
                 <div className="card w-11/12 lg:w-full mx-auto bg-slate-400 shadow-xl">
                     <figure className="px-10 pt-10">
-                        <img src={img} alt="Shoes" className="w-full h-full rounded-xl" />
+                        <PhotoProvider>
+                            <PhotoView src={img}>
+                                <img src={img} alt="Shoes" className="w-full h-full rounded-xl" />
+                            </PhotoView>
+                        </PhotoProvider>
                     </figure>
                     <div className="card-body text-start">
                         <h2 className="card-title">{name}</h2>

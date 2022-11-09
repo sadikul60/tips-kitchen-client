@@ -41,7 +41,7 @@ const Login = () => {
         GoogleSignIn(googleProvider)
         .then(result => {
             const user = result.user;
-            toast.success('Sign Up successfully.');
+            toast.success('Sign in successfully.');
             navigate(from, {replace: true});
         })
         .then(err => console.error(err))

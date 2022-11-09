@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import ServiceItem from './ServiceItem';
+import {  } from 'react-photo-view';
 
 const Services = () => {
     const {loading} = useContext(AuthContext);
