@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import image from '../../assets/errorPage.png';
 
+
 const ErrorPage = () => {
     return (
         <div className='py-12'>

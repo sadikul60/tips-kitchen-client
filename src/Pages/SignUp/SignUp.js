@@ -5,11 +5,14 @@ import { toast } from 'react-toastify';
 import img from '../../assets/sign-up.png'
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
+import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
     const {createUser, updateUserProfile, GoogleSignIn} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
+
+    useTitle('Sign Up')
 
     const handleSignUp = event => {
         event.preventDefault();

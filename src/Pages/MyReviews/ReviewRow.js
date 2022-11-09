@@ -31,10 +31,10 @@ const ReviewRow = ({review, handleDelete}) => {
                 </td>
                 <td>
                     <p>{message?.slice(0, 15)}</p>
-                    <Link className='text-red-500 text-bold'>See More...</Link>
+                    <Link className='text-red-500 font-bold'>See More...</Link>
                 </td>
                 <th>
-                <button className="btn btn-ghost btn-xs">Update</button>
+                    <Link to={`/update/${_id}`} className='text-red-500'><button className="btn btn-ghost font-bold">Update</button></Link>
                 </th>
             </tr>
     );

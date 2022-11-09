@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 import About from '../About/About';
 import Banner from '../Banner/Banner';
 import Service from '../Service/Service';
@@ -7,8 +8,9 @@ import Service from '../Service/Service';
 
 const Home = () => {
     const services = useLoaderData();
+    useTitle('Home')
     
-    console.log(services)
+    // console.log(services)
 
     return (
         <div className='container mx-auto my-20'>

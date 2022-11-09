@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useTitle from '../../hooks/useTitle';
 import ReviewRow from './ReviewRow';
 
 const MyReviews = () => {
     const reviews = useLoaderData();
     const [displayReview, setDisplayReviews] = useState(reviews);
+    useTitle('My Reviews')
 
     const handleDelete = id => {
       const procced = window.confirm('Are you sure? you want to delete this Review.');

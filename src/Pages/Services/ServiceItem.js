@@ -24,7 +24,7 @@ const ServiceItem = ({service}) => {
                 </div>
                 <p>{description.slice(0, 100)}...</p>
                 <div>
-                <Link to={`/services/${_id}`}><button className="btn btn-primary mt-3 w-full">View Details</button></Link>
+                <Link to={`/services/details/${_id}`}><button className="btn btn-primary mt-3 w-full">View Details</button></Link>
                 </div>
             </div>
         </div>

@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
 
-const ReviesField = ({service}) => {
+const UpdateReview = () => {
+    const reviews = useLoaderData();
+    // console.log(reviews)
     const {user} = useContext(AuthContext);
-    const { _id, name } = service;
-
-    const handleReview = event => {
+    
+    const handleUpdateReview = (event, id) => {
         event.preventDefault();
 
         const form = event.target;
@@ -16,9 +18,9 @@ const ReviesField = ({service}) => {
         const serviceId = form.serviceId.value;
         const serviceName = form.serviceName.value;
         const message = form.message.value;
-        // console.log(name, photoURL, email, serviceId, message, serviceName);
+        
 
-        const reviews = {
+        const updateReviews = {
             name,
             photoURL,
             email,
@@ -27,27 +29,29 @@ const ReviesField = ({service}) => {
             message
         }
 
-        fetch('http://localhost:5000/reviews', {
-            method: 'POST',
+        fetch(`http://localhost:5000/reviews/${id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(reviews)
+            body: JSON.stringify(updateReviews)
         })
         .then(res => res.json())
         .then(data => {
             if(data.acknowledged){
-                toast.success('Review Added successfully.');
+                toast.success('Review Update successfully.');
                 form.reset();
             }
             console.log(data);
         })
 
     }
+    
     return (
-        <div className="card w-11/12 lg:w-full mx-auto shadow-2xl bg-slate-400">
-            <h1 className="text-3xl font-bold pt-3">Review now!</h1>
-                <form onSubmit={handleReview} className="card-body">
+        <div className='container mx-auto my-20'>
+            <div className="card w-11/12 lg:w-1/2 mx-auto shadow-2xl bg-slate-400">
+                <h1 className="text-3xl font-bold pt-3">Update Review now!</h1>
+                <form onSubmit={handleUpdateReview } className="card-body">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -70,13 +74,13 @@ const ReviesField = ({service}) => {
                         <label className="label">
                             <span className="label-text">ServiceId</span>
                         </label>
-                        <input type="text" name='serviceId' defaultValue={_id} placeholder="serviceId" readOnly className="input input-bordered" required />
+                        <input type="text" name='serviceId'  placeholder="serviceId" readOnly className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">ServiceName</span>
                         </label>
-                        <input type="text" name='serviceName' defaultValue={name} placeholder="service Name" readOnly className="input input-bordered" required />
+                        <input type="text" name='serviceName'  placeholder="service Name" readOnly className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -86,11 +90,12 @@ const ReviesField = ({service}) => {
                     </div>
                     
                     <div className="form-control mt-6">
-                        <button type='submit' className="btn btn-primary">Add Review</button>
+                        <button type='submit' className="btn btn-primary">Update Review</button>
                     </div>
                 </form>
+            </div>
         </div>
     );
 };
 
-export default ReviesField;
+export default UpdateReview;

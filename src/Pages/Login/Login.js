@@ -4,10 +4,13 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const {login, GoogleSignIn} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+
+    useTitle("Login")
 
     const location = useLocation();
     const navigate = useNavigate();
