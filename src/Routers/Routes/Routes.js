@@ -8,6 +8,7 @@ import MyReviews from '../../Pages/MyReviews/MyReviews';
 import ServiceDetails from '../../Pages/Services/ServiceDetails';
 import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
+import PrivateRouter from '../PrivateRouter/PrivateRouter';
 
 
 const routes = createBrowserRouter([
@@ -32,7 +33,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/reviews',
-                element: <MyReviews></MyReviews>,
+                element: <PrivateRouter><MyReviews></MyReviews></PrivateRouter>,
                 loader: () => fetch('http://localhost:5000/reviews')
             },
             {

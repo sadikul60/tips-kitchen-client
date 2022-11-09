@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import About from '../About/About';
 import Banner from '../Banner/Banner';
@@ -18,7 +18,7 @@ const Home = () => {
             
             {/* services section */}
             <div className='my-20'>
-                <h2 className='text-3xl font-bold pb-5'>My Services</h2>
+                <h2 className='text-3xl font-bold pb-5'>Services</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                     {
                         services.map(service => <Service

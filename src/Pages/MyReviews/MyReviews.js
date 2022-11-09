@@ -25,10 +25,13 @@ const MyReviews = () => {
     </thead>
     <tbody>
       {
+        reviews.length > 0 ?
         reviews.map(review => <ReviewRow
             key={review._id}
             review = {review}
         ></ReviewRow>)
+        :
+        <p>No Reviews were Added!</p>
       }
     </tbody>
     
