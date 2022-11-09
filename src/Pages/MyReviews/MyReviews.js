@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import ReviewRow from './ReviewRow';
 
 const MyReviews = () => {
     const reviews = useLoaderData();
+    const [displayReview, setDisplayReviews] = useState(reviews);
+
+    const handleDelete = id => {
+      const procced = window.confirm('Are you sure? you want to delete this Review.');
+
+      if(procced){
+        fetch(`http://localhost:5000/reviews/${id}`, {
+          method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+          
+          const remainingReviews = displayReview.filter(review => review._id !== id);
+          setDisplayReviews(remainingReviews);
+          toast.success('Review Delete successfully.');
+          console.log(data);
+        })
+      }
+    }
 
     return (
         <div className='container mx-auto my-20'>
@@ -26,9 +46,10 @@ const MyReviews = () => {
     <tbody>
       {
         reviews.length > 0 ?
-        reviews.map(review => <ReviewRow
+        displayReview.map(review => <ReviewRow
             key={review._id}
             review = {review}
+            handleDelete = {handleDelete}
         ></ReviewRow>)
         :
         <p>No Reviews were Added!</p>

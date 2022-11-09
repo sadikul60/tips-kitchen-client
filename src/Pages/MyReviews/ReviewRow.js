@@ -2,13 +2,13 @@ import React from 'react';
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
-const ReviewRow = ({review}) => {
-    const {name, photoURL, email, serviceId, serviceName, message} = review;
+const ReviewRow = ({review, handleDelete}) => {
+    const { _id, name, photoURL, email, serviceId, serviceName, message} = review;
     return (
             <tr>
                 <th>
                 <label>
-                    <button className='btn-ghost rounded-full p-2'><MdDeleteForever className='w-10 h-10 text-red-500'></MdDeleteForever></button>
+                    <button onClick={() => handleDelete(_id)} className='btn-ghost rounded-full p-2'><MdDeleteForever className='w-10 h-10 text-red-500'></MdDeleteForever></button>
                 </label>
                 </th>
                 <td>

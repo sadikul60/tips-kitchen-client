@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/logo.png'
 
 const Footer = () => {
     return (
         <footer className="footer p-10 bg-neutral text-neutral-content justify-center md:justify-between">
-            <div>
-                <img src="" alt="" />
+            <div className=''>
+                <img className='w-24 h-24 rounded-full' src={logo} alt="" />
                 <h1  className="normal-case text-2xl font-bold">
                     <span className='text-3xl text-orange-600'>T</span>ips<span className='text-3xl text-orange-600'>K</span>itchen
                 </h1>
