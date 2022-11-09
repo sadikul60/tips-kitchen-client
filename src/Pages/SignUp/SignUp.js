@@ -9,6 +9,7 @@ import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
     const {createUser, updateUserProfile, GoogleSignIn} = useContext(AuthContext);
+    const [error, setError] = useState();
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
 
@@ -30,9 +31,10 @@ const SignUp = () => {
             handleUpdateProfile(name, photoURL);
             toast.success('Sign Up successfully.')
             form.reset();
+            setError('');
             navigate('/');
         })
-        .catch(err => console.error(err))
+        .catch(err => setError(err.message))
     }
 
     const handleUpdateProfile = (name, photoURL) => {
@@ -43,7 +45,7 @@ const SignUp = () => {
 
         updateUserProfile(profile)
         .then(result => { })
-        .catch(err => console.error(err))
+        .catch(err => setError(err.message))
     }
 
     // googleSignUp
@@ -54,7 +56,7 @@ const SignUp = () => {
             toast.success('Sign Up successfully.');
             navigate('/');
         })
-        .then(err => console.error(err))
+        .then(err => toast.warn(err.message))
     }
     return (
         <div>
@@ -67,6 +69,7 @@ const SignUp = () => {
                         <h1 className="text-3xl font-bold pt-3">Sign Up now!</h1>
                         <form onSubmit={handleSignUp} className="card-body">
                             <div className="form-control">
+                            <p className='text-sm text-red-600 font-bold'>{error}</p>
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>

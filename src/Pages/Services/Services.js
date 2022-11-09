@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexs/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import ServiceItem from './ServiceItem';
 
 const Services = () => {
+    const {loading} = useContext(AuthContext);
+
     const services = useLoaderData();
-    useTitle('Services')
+
+    // added route title
+    useTitle('Services');
+    
+    // added spinner
+    if(loading){
+        return <button className="btn btn-square loading"></button>
+    }
+
     return (
         <div className='container mx-auto my-20'>
             <h3 className='text-3xl font-bold pb-5'>My Services: {services.length}</h3>

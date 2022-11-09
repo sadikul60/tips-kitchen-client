@@ -41,11 +41,11 @@ const routes = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivateRouter><UpdateReview></UpdateReview></PrivateRouter>,
-                loader: () => fetch('http://localhost:5000/reviews')
+                loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
             },
             {
                 path: '/add_services',
-                element: <AddServices></AddServices>
+                element: <PrivateRouter><AddServices></AddServices></PrivateRouter>
             },
             {
                 path: '/login',

@@ -7,7 +7,9 @@ import ReviewRow from './ReviewRow';
 const MyReviews = () => {
     const reviews = useLoaderData();
     const [displayReview, setDisplayReviews] = useState(reviews);
-    useTitle('My Reviews')
+
+    // added route title
+    useTitle('My Reviews');
 
     const handleDelete = id => {
       const procced = window.confirm('Are you sure? you want to delete this Review.');
@@ -21,7 +23,7 @@ const MyReviews = () => {
           
           const remainingReviews = displayReview.filter(review => review._id !== id);
           setDisplayReviews(remainingReviews);
-          toast.success('Review Delete successfully.');
+          toast.success('Review Deleted successfully.');
           console.log(data);
         })
       }

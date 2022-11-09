@@ -9,7 +9,10 @@ const ServiceDetails = () => {
     const {user} = useContext(AuthContext);
     const service = useLoaderData();
     const { img, name, price, description, ratings} = service;
-    useTitle('Details')
+
+    // added route title
+    useTitle('Details');
+    
     return (
         <div className='container mx-auto my-20'>
             <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 items-center'>

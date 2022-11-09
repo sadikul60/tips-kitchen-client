@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../contexs/AuthProvider/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
 import About from '../About/About';
 import Banner from '../Banner/Banner';
@@ -7,10 +8,16 @@ import Service from '../Service/Service';
 
 
 const Home = () => {
+    const {loading} = useContext(AuthContext);
     const services = useLoaderData();
-    useTitle('Home')
-    
-    // console.log(services)
+
+    // added route title
+    useTitle('Home');
+
+    if(loading){
+        return <button className="btn btn-square loading"></button>
+    }
+
 
     return (
         <div className='container mx-auto my-20'>

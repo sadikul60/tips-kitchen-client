@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -8,6 +8,7 @@ import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const {login, GoogleSignIn} = useContext(AuthContext);
+    const [error, setError] = useState()
     const googleProvider = new GoogleAuthProvider();
 
     useTitle("Login")
@@ -28,10 +29,11 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            setError('');
             toast.success('Login successfully.');
             navigate(from, {replace: true});
         })
-        .catch(err => console.error(err))
+        .catch(err => setError(err.message))
     }
 
     // googleSignUp
@@ -52,6 +54,7 @@ const Login = () => {
                     <h1 className="text-3xl font-bold pt-3">Login now!</h1>
                         <form onSubmit={handleSignIn} className="card-body">
                             <div className="form-control">
+                            <p className='text-sm text-red-600 font-bold'>{error}</p>
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
