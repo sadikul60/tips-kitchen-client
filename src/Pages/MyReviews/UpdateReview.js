@@ -10,10 +10,10 @@ const UpdateReview = () => {
     // added route title
     useTitle('Update Review');
     
-    const handleUpdateReview = (event, id) => {
+    const handleUpdateReview = (event) => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/reviews/${storedReview._id}`, {
+        fetch(`https://service-review-server-lilac.vercel.app/reviews/${storedReview?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -38,7 +38,7 @@ const UpdateReview = () => {
         const newReview = {...review};
         newReview[field] = value;
         setReview(newReview);
-    }
+    };
     
     return (
         <div className='container mx-auto my-20'>

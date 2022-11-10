@@ -22,27 +22,27 @@ const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/services/limit')
+                loader: () => fetch('https://service-review-server-lilac.vercel.app/services/limit')
             },
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://service-review-server-lilac.vercel.app/services')
             },
             {
                 path: '/services/details/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://service-review-server-lilac.vercel.app/services/${params.id}`)
             },
             {
                 path: '/reviews',
                 element: <PrivateRouter><MyReviews></MyReviews></PrivateRouter>,
-                loader: () => fetch('http://localhost:5000/reviews')
+                loader: () => fetch('https://service-review-server-lilac.vercel.app/reviews')
             },
             {
                 path: '/update/:id',
                 element: <PrivateRouter><UpdateReview></UpdateReview></PrivateRouter>,
-                loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({params}) => fetch(`https://service-review-server-lilac.vercel.app/reviews/${params.id}`)
             },
             {
                 path: '/add_services',

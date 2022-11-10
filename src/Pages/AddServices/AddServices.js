@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import useTitle from '../../hooks/useTitle';
 
 const AddServices = () => {
-    useTitle('Add_Services');
+    useTitle('Add_Service');
 
     const handleAddService = event => {
         event.preventDefault();
@@ -25,7 +25,7 @@ const AddServices = () => {
             description
         }
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://service-review-server-lilac.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
