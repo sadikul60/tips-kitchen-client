@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../hooks/useTitle';
 import About from '../About/About';
 import Banner from '../Banner/Banner';
+import ClientFeedback from '../ClientFeedback/ClientFeedback';
 import Contact from '../Contact/Contact';
 import Service from '../Service/Service';
 
@@ -36,6 +37,7 @@ const Home = () => {
             </div>
 
             <div className='mb-20'>
+                <ClientFeedback></ClientFeedback>
                 <About></About>
                 <Contact></Contact>
             </div>

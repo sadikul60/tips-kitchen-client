@@ -7,10 +7,10 @@ const Service = ({service}) => {
     const {_id, img, name, price, description, ratings} = service;
     return (
         <div className="card w-full bg-slate-400 shadow-xl">
-            <figure className="px-10 pt-10">
+            <figure className="p-6">
                 <PhotoProvider>
                     <PhotoView src={img}>
-                        <img src={img} alt="Shoes" className="w-full rounded-xl" />
+                        <img src={img} alt="Shoes" className="w-full h-48 rounded-xl" />
                     </PhotoView>
                 </PhotoProvider>
             </figure>
@@ -27,7 +27,7 @@ const Service = ({service}) => {
                     </p>
                     <p className='text-center'>{ratings}k</p>
                 </div>
-                <p>{description.slice(0, 100)}...</p>
+                <p className='text-xl'>{description.slice(0, 100)}...</p>
                 <div>
                 <Link to={`/services/details/${_id}`}><button className="btn btn-primary mt-3 w-full">View Details</button></Link>
                 </div>
