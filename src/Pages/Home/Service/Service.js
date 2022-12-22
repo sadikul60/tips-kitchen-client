@@ -7,7 +7,7 @@ import './Service.css'
 const Service = ({service}) => {
     const {_id, img, name, price, description, ratings} = service;
     return (
-        <div className="card w-full bg-slate-400 shadow-xl">
+        <div className="card-service w-full bg-slate-400 shadow-xl">
             <figure className="p-6">
                 <PhotoProvider>
                     <PhotoView src={img}>
@@ -28,10 +28,10 @@ const Service = ({service}) => {
                     </p>
                     <p className='text-center'>{ratings}k</p>
                 </div>
-                <p className='text-xl'>{description.slice(0, 100)}...</p>
-                <div>
-                <Link to={`/services/details/${_id}`}><button className="btn btn-primary mt-3 w-full">View Details</button></Link>
-                </div>
+                <p className='text-xl mt-3'>{description.slice(0, 100)}...</p>
+            </div>
+            <div>
+                <Link to={`/services/details/${_id}`}><button className="btn btn-primary mt-3 w-full rounded-none">View Details</button></Link>
             </div>
         </div>
     );

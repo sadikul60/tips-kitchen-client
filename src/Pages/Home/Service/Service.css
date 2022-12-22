@@ -1,8 +1,8 @@
-.card{
+.card-service{
     transition: 0.5s;
 }
 
-.card:hover{
+.card-service:hover{
     background: lavenderblush;
     transform: scale(1.1);
     transition: 0.5s;

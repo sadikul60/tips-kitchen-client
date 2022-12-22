@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../layouts/Main/Main';
+import AddReviews from '../../Pages/AddReviews/AddReviews';
 import AddServices from '../../Pages/AddServices/AddServices';
 import Blogs from '../../Pages/Blogs/Blogs';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
@@ -32,6 +33,11 @@ const routes = createBrowserRouter([
             {
                 path: '/services/details/:id',
                 element: <ServiceDetails></ServiceDetails>,
+                loader: ({params}) => fetch(`https://service-review-server-lilac.vercel.app/services/${params.id}`)
+            },
+            {
+                path: '/services/review/:id',
+                element: <AddReviews></AddReviews>,
                 loader: ({params}) => fetch(`https://service-review-server-lilac.vercel.app/services/${params.id}`)
             },
             {

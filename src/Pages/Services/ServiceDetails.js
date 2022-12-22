@@ -9,53 +9,47 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const ServiceDetails = () => {
     const {user} = useContext(AuthContext);
     const service = useLoaderData();
-    const { img, name, price, description, ratings} = service;
+    const {_id, img, name, price, description, ratings} = service;
 
     // added route title
     useTitle('Details');
     
     return (
         <div className='container mx-auto my-20'>
-            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
-                <div className="card w-11/12 lg:w-full mx-auto bg-slate-400 shadow-xl">
-                    <figure className="px-10 pt-10">
-                        <PhotoProvider>
-                            <PhotoView src={img}>
-                                <img src={img} alt="Shoes" className="w-full h-full rounded-xl" />
-                            </PhotoView>
-                        </PhotoProvider>
-                    </figure>
-                    <div className="card-body text-start">
-                        <h2 className="card-title">{name}</h2>
-                        <p className='text-lg font-bold text-start'>Price: ${price}</p>
-                        <div className='flex justify-between'>
-                            <p className='flex text-warning text-xl'> 
-                                <HiStar />
-                                <HiStar />
-                                <HiStar />
-                                <HiStar />
-                                <HiStar />
-                            </p>
-                            <p className='text-center'>{ratings}k</p>
+            <div className=' gap-12 items-center'>
+                <div className="card w-11/12 lg:w-full mx-auto bg-slate-400 rounded-none shadow-xl">
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                        <figure className="p-6">
+                            <PhotoProvider>
+                                <PhotoView src={img}>
+                                    <img src={img} alt="Shoes" className="w-full h-full rounded-xl" />
+                                </PhotoView>
+                            </PhotoProvider>
+                        </figure>
+                        <div className="card-body text-start">
+                            <h2 className="text-3xl font-semibold">{name}</h2>
+                            <p className='text-2xl font-bold text-start'>Price: ${price}</p>
+                            <div className='flex justify-between items-center text-2xl'>
+                                <p className='flex text-warning'> 
+                                    <HiStar />
+                                    <HiStar />
+                                    <HiStar />
+                                    <HiStar />
+                                    <HiStar />
+                                </p>
+                                <p className='text-end font-bold'>{ratings}k</p>
+                            </div>
+                            <p className='text-xl mt-4'>{description}</p>
+                            <div className="flex justify-between">
+                                <Link to='/services' className='btn btn-primary mt-3 w-5/12'><button className="">Go Back</button></Link>
+                                <Link to={`/services/review/${_id}`} className='btn btn-primary mt-3 w-5/12'><button className="Review Now">Add Review</button></Link>
+                            </div>
                         </div>
-                        <p>{description}</p>
-                        <div className="">
-                        <Link to='/services'><button className="btn btn-primary mt-3 w-full">Go Back</button></Link>
-                    </div>
                     </div>
                 </div>
 
                 {/* review section  */}
-                {
-                    user?.uid ?
-                    <ReviesField
-                        service = {service}
-                    ></ReviesField>
-                    :
-                    <div className='w-11/12 lg:w-full mx-auto bg-slate-400 p-3 shadow-2xl rounded-xl'>
-                        <p className='text-sm md:text-2xl lg:text-3xl font-bold'>Please login to add a Review <Link to ='/login'><button className='btn btn-primary'>Login</button></Link></p>
-                    </div>
-                }
+                
             </div>
         </div>
     );

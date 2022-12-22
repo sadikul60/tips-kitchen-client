@@ -1,3 +1,8 @@
+.card-two{
+    transition: 0.5s;
+}
+
 .card-two:hover{
     background: lavenderblush;
+    transition: 0.5s;
 }
