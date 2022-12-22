@@ -5,6 +5,7 @@ import AddReviews from '../../Pages/AddReviews/AddReviews';
 import AddServices from '../../Pages/AddServices/AddServices';
 import Blogs from '../../Pages/Blogs/Blogs';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
+import ClientFeedback from '../../Pages/Home/ClientFeedback/ClientFeedback';
 import Home from '../../Pages/Home/Home/Home';
 import Login from '../../Pages/Login/Login';
 import MyReviews from '../../Pages/MyReviews/MyReviews';
@@ -53,6 +54,10 @@ const routes = createBrowserRouter([
             {
                 path: '/add_services',
                 element: <PrivateRouter><AddServices></AddServices></PrivateRouter>
+            },
+            {
+                path: '/customer/feedback',
+                element: <ClientFeedback></ClientFeedback>
             },
             {
                 path: '/blogs',

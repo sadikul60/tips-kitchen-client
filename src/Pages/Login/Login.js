@@ -71,9 +71,9 @@ const Login = () => {
     }
     return (
         <div className=''>
-            <div className="hero bg-base-200 py-20">
+            <div className="w-7/12 mx-auto  py-20">
                 <div className="hero-content">
-                    <div className="card w-full shadow-2xl bg-slate-400">
+                    <div className="card w-full shadow-2xl rounded-none bg-slate-400">
                     <h1 className="text-3xl font-bold pt-3">Login now!</h1>
                         <form onSubmit={handleSignIn} className="card-body">
                             <div className="form-control">

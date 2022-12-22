@@ -45,7 +45,7 @@ const ReviesField = ({service}) => {
 
     }
     return (
-        <div className="card w-11/12 lg:w-full mx-auto shadow-2xl bg-slate-400">
+        <div className="card w-11/12 lg:w-full mx-auto shadow-2xl rounded-none bg-slate-400">
             <h1 className="text-3xl font-bold pt-3">Review now!</h1>
                 <form onSubmit={handleReview} className="card-body">
                     <div className="form-control">

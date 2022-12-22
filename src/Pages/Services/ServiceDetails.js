@@ -40,9 +40,9 @@ const ServiceDetails = () => {
                                 <p className='text-end font-bold'>{ratings}k</p>
                             </div>
                             <p className='text-xl mt-4'>{description}</p>
-                            <div className="flex justify-between">
-                                <Link to='/services' className='btn btn-primary mt-3 w-5/12'><button className="">Go Back</button></Link>
-                                <Link to={`/services/review/${_id}`} className='btn btn-primary mt-3 w-5/12'><button className="Review Now">Add Review</button></Link>
+                            <div className="flex justify-between gap-4">
+                                <Link to='/services' className='btn btn-primary mt-3 w-6/12'><button className="text-xl">Go Back</button></Link>
+                                <Link to={`/services/review/${_id}`} className='btn btn-primary mt-3 w-6/12'><button className="text-xl">Add Review</button></Link>
                             </div>
                         </div>
                     </div>

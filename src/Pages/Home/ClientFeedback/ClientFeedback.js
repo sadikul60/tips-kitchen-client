@@ -66,7 +66,7 @@ const ClientFeedback = () => {
                         I hope you will always be by my side.</p>
                 </div>
             </div>
-            <Link ><button className='btn btn-primary mt-12'>See More</button></Link>
+            <Link to=''><button className='text-xl btn btn-primary mt-12'>See More</button></Link>
         </div>
     );
 };

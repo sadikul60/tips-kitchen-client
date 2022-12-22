@@ -5,6 +5,7 @@ import About from '../About/About';
 import Banner from '../Banner/Banner';
 import ClientFeedback from '../ClientFeedback/ClientFeedback';
 import Contact from '../Contact/Contact';
+import RegularCustomer from '../RegularCustomer/RegularCustomer';
 import Service from '../Service/Service';
 
 
@@ -33,10 +34,11 @@ const Home = () => {
                         ></Service>)
                     }
                 </div>
-                <Link to='/services'><button className='btn btn-primary mt-12'>Views All</button></Link>
+                <Link to='/services'><button className='text-xl btn btn-primary mt-12'>Views All</button></Link>
             </div>
 
             <div className='mb-20'>
+                <RegularCustomer></RegularCustomer>
                 <ClientFeedback></ClientFeedback>
                 <About></About>
                 <Contact></Contact>
