@@ -7,18 +7,18 @@ const ServiceItem = ({service}) => {
     const {_id, name, price, description, img, ratings} = service;
     return (
         <div className="card w-full bg-slate-400 shadow-xl">
-            <figure className="px-10 pt-10">
+            <figure className="p-6">
                 <PhotoProvider>
                     <PhotoView src={img}>
-                        <img src={img} alt="Shoes" className="w-full rounded-xl" />
+                        <img src={img} alt="Shoes" className="w-full h-48 rounded-xl" />
                     </PhotoView>
                 </PhotoProvider>
             </figure>
-            <div className="card-body text-start">
-                <h2 className="card-title">{name}</h2>
-                <p className='text-lg font-bold text-start'>Price: ${price}</p>
-                <div className='flex justify-between'>
-                    <p className='flex text-warning text-xl'> 
+            <div className="mx-6 mb-8 text-start">
+                <h2 className="text-2xl font-semibold text-center">{name}</h2>
+                <p className='text-xl font-bold text-start'>Price: ${price}</p>
+                <div className='flex justify-between text-xl items-center'>
+                    <p className='flex text-warning'> 
                         <HiStar />
                         <HiStar />
                         <HiStar />
