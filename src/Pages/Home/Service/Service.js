@@ -2,6 +2,7 @@ import React from 'react';
 import { HiStar } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import './Service.css'
 
 const Service = ({service}) => {
     const {_id, img, name, price, description, ratings} = service;
@@ -14,11 +15,11 @@ const Service = ({service}) => {
                     </PhotoView>
                 </PhotoProvider>
             </figure>
-            <div className="card-body text-start">
-                <h2 className="card-title">{name}</h2>
-                <p className='text-lg font-bold text-start'>Price: ${price}</p>
-                <div className='flex justify-between'>
-                    <p className='flex text-warning text-xl'> 
+            <div className="mx-6 mb-8 text-start">
+                <h2 className="text-2xl font-semibold text-center">{name}</h2>
+                <p className='text-xl font-bold text-start'>Price: $<span className=''>{price}</span></p>
+                <div className='flex justify-between text-xl items-center'>
+                    <p className='flex text-warning'> 
                         <HiStar />
                         <HiStar />
                         <HiStar />
